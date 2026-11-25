@@ -1,0 +1,105 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bella Bistro | Fine Dining</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Arial,sans-serif;background:#111;color:#fff}
+header{padding:20px 8%;display:flex;justify-content:space-between;align-items:center;background:#171717}
+.logo{font-size:25px;color:#e8bd78;font-weight:bold}
+nav a{color:white;text-decoration:none;margin-left:22px;font-size:14px}
+.hero{min-height:420px;padding:100px 8%;background:linear-gradient(90deg,#000c,#0005),url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1400') center/cover;display:flex;align-items:center}
+.hero div{max-width:560px}
+.tag{color:#e8bd78;letter-spacing:4px;font-size:12px}
+h1{font-size:55px;margin:18px 0}
+.hero p{color:#ddd;line-height:1.7}
+.btn{display:inline-block;margin-top:25px;background:#d6a75e;color:#111;padding:14px 25px;text-decoration:none;font-weight:bold;border-radius:3px}
+section{padding:65px 8%;text-align:center}
+h2{font-size:32px;margin-bottom:15px}
+.sub{color:#aaa;margin-bottom:35px}
+.menu{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.item{background:#1c1c1c;border-radius:8px;overflow:hidden;text-align:left}
+.item img{width:100%;height:190px;object-fit:cover}
+.info{padding:18px}
+.info h3{margin-bottom:9px}
+.info p{color:#aaa;font-size:14px;line-height:1.5}
+.price{color:#e8bd78;margin-top:12px;font-weight:bold}
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+.gallery img{width:100%;height:190px;object-fit:cover;border-radius:6px}
+.reservation{background:#211c16}
+.reservation p{color:#ccc;margin-top:12px}
+footer{padding:25px;text-align:center;color:#999;background:#080808;font-size:13px}
+@media(max-width:650px){
+header{padding:18px 5%;flex-wrap:wrap;gap:15px}
+nav{width:100%;display:flex;justify-content:space-between}
+nav a{margin:0;font-size:12px}
+.hero{padding:75px 7%;min-height:380px}
+h1{font-size:40px}
+section{padding:48px 6%}
+.menu{grid-template-columns:1fr}
+.gallery{grid-template-columns:1fr 1fr}
+.gallery img{height:135px}
+}
+</style>
+</head>
+<body>
+<header>
+<div class="logo">BELLA BISTRO</div>
+<nav>
+<a href="#home">Home</a>
+<a href="#menu">Menu</a>
+<a href="#gallery">Gallery</a>
+<a href="#contact">Contact</a>
+</nav>
+</header>
+
+<div class="hero" id="home">
+<div>
+<div class="tag">WELCOME TO BELLA BISTRO</div>
+<h1>Good Food.<br>Beautiful Moments.</h1>
+<p>Experience delicious food, warm hospitality and unforgettable dining in an elegant atmosphere.</p>
+<a class="btn" href="#menu">Explore Our Menu</a>
+</div>
+</div>
+
+<section id="menu">
+<h2>Our Special Menu</h2>
+<p class="sub">Fresh ingredients. Incredible flavours.</p>
+<div class="menu">
+<div class="item">
+<img src="https://images.unsplash.com/photo- pizza-1555939594-58d7cb561ad1?w=600" alt="Pizza" onerror="this.src='https://images.unsplash.com/photo-1513104890138-7c749659a591?w=600'">
+<div class="info"><h3>Classic Italian Pizza</h3><p>Freshly baked with rich cheese and herbs.</p><div class="price">$16.00</div></div>
+</div>
+<div class="item">
+<img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=600" alt="Burger">
+<div class="info"><h3>Signature Burger</h3><p>Juicy grilled burger with fresh ingredients.</p><div class="price">$14.00</div></div>
+</div>
+<div class="item">
+<img src="https://images.unsplash.com/photo-1476224203421-9ac39bcb3327?w=600" alt="Pasta">
+<div class="info"><h3>Creamy Italian Pasta</h3><p>Rich creamy sauce with authentic flavours.</p><div class="price">$18.00</div></div>
+</div>
+</div>
+</section>
+
+<section id="gallery">
+<h2>Our Restaurant</h2>
+<p class="sub">A place to enjoy every moment.</p>
+<div class="gallery">
+<img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600" alt="Dining">
+<img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600" alt="Interior">
+<img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=600" alt="Restaurant">
+</div>
+</section>
+
+<section class="reservation" id="contact">
+<h2>Reserve Your Table</h2>
+<p>Ready for a memorable dining experience?</p>
+<a class="btn" href="mailto:hello@example.com?subject=Table%20Reservation">Contact Us</a>
+</section>
+
+<footer>© 2026 Bella Bistro · Restaurant Demo by TaskPilot Digital</footer>
+</body>
+</html>
