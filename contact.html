@@ -1,0 +1,162 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact | TaskPilot Digital</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+ background:#080b14;color:white;font-family:Arial,sans-serif;
+ min-height:100vh;overflow:hidden;
+}
+header{
+ height:76px;padding:0 6%;display:flex;
+ align-items:center;justify-content:space-between;
+ border-bottom:1px solid #20263a;
+}
+.logo{font-size:21px;font-weight:800}
+.logo span{color:#7885ff}
+nav{display:flex;gap:22px}
+nav a{color:#aeb6ca;text-decoration:none;font-size:13px}
+nav a:hover,nav .active{color:#9298ff}
+main{
+ min-height:calc(100dvh - 76px);padding:30px 7%;
+ display:flex;align-items:center;justify-content:center;
+}
+.layout{
+ width:100%;max-width:1000px;display:grid;
+ grid-template-columns:1fr 1fr;gap:35px;align-items:center;
+}
+.tag{color:#9298ff;font-size:12px;letter-spacing:2px;margin-bottom:12px}
+h1{font-size:clamp(32px,5vw,48px);line-height:1.12;margin-bottom:15px}
+h1 span{
+ background:linear-gradient(90deg,#7785ff,#c18aff);
+ -webkit-background-clip:text;color:transparent;
+}
+.description{color:#aab2c7;font-size:13px;line-height:1.7;max-width:400px}
+.contact-box{
+ background:#111727;border:1px solid #252d45;
+ padding:25px;border-radius:17px;
+}
+.contact-box h2{font-size:20px;margin-bottom:8px}
+.small{color:#929bb2;font-size:12px;margin-bottom:20px}
+.field{margin-bottom:13px}
+label{display:block;font-size:11px;color:#c5cbe0;margin-bottom:7px}
+input,textarea,select{
+ width:100%;background:#090e1b;border:1px solid #303951;
+ border-radius:8px;padding:12px;color:white;font-size:12px;outline:none;
+}
+input:focus,textarea:focus,select:focus{border-color:#818bff}
+textarea{resize:none;height:85px}
+button{
+ width:100%;border:0;border-radius:8px;padding:13px;
+ background:linear-gradient(90deg,#6579ff,#a16aff);
+ color:white;font-size:13px;font-weight:bold;cursor:pointer;
+}
+.notice{color:#8993aa;font-size:10px;line-height:1.5;margin-top:12px}
+footer{
+ position:fixed;bottom:12px;left:0;width:100%;
+ text-align:center;color:#737e97;font-size:10px;
+}
+@media(max-width:700px){
+ header{height:62px;padding:0 15px}
+ .logo{font-size:17px}
+ nav{gap:10px}
+ nav a{font-size:10px}
+ main{min-height:calc(100dvh - 62px);padding:14px 16px 32px}
+ .layout{grid-template-columns:1fr;gap:13px}
+ h1{font-size:29px;margin-bottom:7px}
+ .tag{font-size:10px;margin-bottom:7px}
+ .description{font-size:11px;line-height:1.5}
+ .contact-box{padding:14px;border-radius:13px}
+ .contact-box h2{font-size:17px}
+ .small{font-size:10px;margin-bottom:12px}
+ .field{margin-bottom:8px}
+ label{font-size:10px;margin-bottom:5px}
+ input,textarea,select{padding:9px;font-size:11px}
+ textarea{height:55px}
+ button{padding:11px;font-size:12px}
+ .notice{font-size:9px;margin-top:8px}
+ footer{font-size:9px;bottom:6px}
+}
+</style>
+</head>
+<body>
+
+<header>
+ <div class="logo">TaskPilot<span>.</span></div>
+ <nav>
+  <a href="index.html">Home</a>
+  <a href="services.html">Services</a>
+  <a href="about.html">About</a>
+  <a href="portfolio.html">Work</a>
+  <a class="active" href="contact.html">Contact</a>
+ </nav>
+</header>
+
+<main>
+ <div class="layout">
+  <section>
+   <div class="tag">LET'S CONNECT</div>
+   <h1>Let's build something <span>great.</span></h1>
+   <p class="description">
+    Have a project in mind? Tell us what your business needs.
+    We're interested in helping small businesses across the
+    USA and Canada with modern digital solutions.
+   </p>
+  </section>
+
+  <section class="contact-box">
+   <h2>Start a Project</h2>
+   <p class="small">Tell us a little about your project.</p>
+
+   <form id="contactForm">
+    <div class="field">
+     <label>Your Name</label>
+     <input type="text" id="name" placeholder="Enter your name" required>
+    </div>
+
+    <div class="field">
+     <label>Business Email</label>
+     <input type="email" id="email" placeholder="you@business.com" required>
+    </div>
+
+    <div class="field">
+     <label>Service Required</label>
+     <select id="service" required>
+      <option value="">Select a service</option>
+      <option>Website Development</option>
+      <option>AI Customer Support</option>
+      <option>Website Redesign</option>
+      <option>Maintenance</option>
+      <option>Other</option>
+     </select>
+    </div>
+
+    <div class="field">
+     <label>Project Details</label>
+     <textarea id="details" placeholder="Tell us about your project..." required></textarea>
+    </div>
+
+    <button type="submit">Send Inquiry →</button>
+    <p class="notice">
+     Contact backend is not connected yet.
+     This is a frontend demo and does not send or store submissions.
+    </p>
+   </form>
+  </section>
+ </div>
+</main>
+
+<footer>© 2026 TaskPilot Digital · Built for business growth</footer>
+
+<script>
+document.getElementById("contactForm").addEventListener("submit",function(e){
+ e.preventDefault();
+ alert("Thanks for your interest! Our contact system is being set up. Please check back soon.");
+});
+</script>
+</body>
+</html>
