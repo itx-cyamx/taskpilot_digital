@@ -1,0 +1,238 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Work | TaskPilot Digital</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+  background:#080b14;
+  color:#fff;
+  font-family:Arial,sans-serif;
+  min-height:100vh;
+  overflow:hidden;
+}
+
+header{
+  height:76px;
+  padding:0 6%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  border-bottom:1px solid #20263a;
+}
+
+.logo{font-size:21px;font-weight:800}
+.logo span{color:#7885ff}
+
+nav{display:flex;gap:22px}
+nav a{
+  color:#aeb6ca;
+  text-decoration:none;
+  font-size:13px;
+}
+nav a:hover,nav .active{color:#9298ff}
+
+main{
+  min-height:calc(100dvh - 76px);
+  padding:30px 7%;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+.tag{
+  color:#9298ff;
+  font-size:12px;
+  letter-spacing:2px;
+  text-transform:uppercase;
+  margin-bottom:10px;
+}
+
+h1{
+  font-size:clamp(30px,5vw,45px);
+  margin-bottom:10px;
+}
+h1 span{
+  background:linear-gradient(90deg,#7785ff,#c18aff);
+  -webkit-background-clip:text;
+  color:transparent;
+}
+
+.subtitle{
+  color:#aab2c7;
+  font-size:13px;
+  line-height:1.6;
+  margin-bottom:25px;
+  max-width:600px;
+}
+
+.projects{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+}
+
+.project{
+  background:#111727;
+  border:1px solid #252d45;
+  border-radius:15px;
+  overflow:hidden;
+  transition:.25s;
+}
+
+.project:hover{
+  transform:translateY(-4px);
+  border-color:#7785ff;
+}
+
+.preview{
+  height:145px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:linear-gradient(135deg,#171d38,#25204a);
+  font-size:48px;
+}
+
+.preview.two{
+  background:linear-gradient(135deg,#142b38,#24204b);
+}
+
+.preview.three{
+  background:linear-gradient(135deg,#29203c,#172d43);
+}
+
+.info{padding:17px}
+.type{
+  color:#9298ff;
+  font-size:10px;
+  text-transform:uppercase;
+  letter-spacing:1px;
+}
+.info h3{font-size:16px;margin:8px 0}
+.info p{
+  color:#aab2c7;
+  font-size:12px;
+  line-height:1.6;
+}
+
+.demo{
+  display:inline-block;
+  margin-top:13px;
+  padding:6px 10px;
+  border:1px solid #343d60;
+  border-radius:20px;
+  color:#aeb6ff;
+  font-size:10px;
+}
+
+.note{
+  text-align:center;
+  margin-top:20px;
+  color:#818ba5;
+  font-size:11px;
+}
+
+@media(max-width:700px){
+  header{height:62px;padding:0 15px}
+  .logo{font-size:17px}
+  nav{gap:10px}
+  nav a{font-size:10px}
+  main{
+    min-height:calc(100dvh - 62px);
+    padding:18px 15px;
+  }
+  h1{font-size:29px}
+  .subtitle{font-size:11px;margin-bottom:15px}
+  .projects{gap:9px}
+  .preview{height:105px;font-size:34px}
+  .info{padding:10px 8px}
+  .info h3{font-size:12px;margin:6px 0}
+  .info p{font-size:10px;line-height:1.4}
+  .type{font-size:8px}
+  .demo{font-size:8px;margin-top:8px;padding:5px 7px}
+  .note{font-size:9px;margin-top:13px}
+}
+
+@media(max-width:370px){
+  nav{gap:7px}
+  nav a{font-size:9px}
+  .preview{height:90px}
+  .info{padding:8px 6px}
+  .info h3{font-size:11px}
+  .info p{font-size:9px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">TaskPilot<span>.</span></div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="services.html">Services</a>
+    <a href="about.html">About</a>
+    <a class="active" href="portfolio.html">Work</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<main>
+
+  <div class="tag">Our Portfolio</div>
+
+  <h1>Ideas into <span>Digital Reality.</span></h1>
+
+  <p class="subtitle">
+    Explore our concept projects and see how modern digital solutions
+    can help businesses create a stronger online presence.
+  </p>
+
+  <div class="projects">
+
+    <div class="project">
+      <div class="preview">🌐</div>
+      <div class="info">
+        <div class="type">Web Development</div>
+        <h3>Business Website</h3>
+        <p>A clean and modern website concept for a growing business.</p>
+        <span class="demo">DEMO PROJECT</span>
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="preview two">🤖</div>
+      <div class="info">
+        <div class="type">AI Automation</div>
+        <h3>AI Support Assistant</h3>
+        <p>A concept for automated customer questions and support.</p>
+        <span class="demo">DEMO PROJECT</span>
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="preview three">✨</div>
+      <div class="info">
+        <div class="type">Website Redesign</div>
+        <h3>Modern Website</h3>
+        <p>A redesign concept focused on a better digital experience.</p>
+        <span class="demo">DEMO PROJECT</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="note">
+    Concept demonstrations only · More real projects coming soon.
+  </div>
+
+</main>
+
+</body>
+</html>
