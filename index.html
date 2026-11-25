@@ -1,0 +1,234 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#080a12">
+<title>TaskPilot Digital | Digital Growth Partner</title>
+<meta name="description" content="Professional websites, AI automation and digital solutions for growing businesses.">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{width:100%;height:100%;overflow:hidden}
+body{
+font-family:Arial,Helvetica,sans-serif;
+background:#080a12;color:#fff;
+}
+a{text-decoration:none;color:inherit}
+header{
+height:76px;width:100%;
+border-bottom:1px solid #ffffff16;
+display:flex;align-items:center;
+padding:0 6%;
+justify-content:space-between;
+background:#090b14;
+}
+.logo{font-size:23px;font-weight:800;letter-spacing:-1px}
+.logo span{color:#9c85ff}
+nav{display:flex;gap:27px;align-items:center}
+nav a{font-size:13px;color:#b7bbca;transition:.2s}
+nav a:hover,nav .active{color:#a895ff}
+.contact-btn,.main-btn{
+background:linear-gradient(110deg,#647bff,#a16bff);
+padding:12px 19px;border-radius:7px;
+font-size:12px;font-weight:bold;
+}
+main{
+height:calc(100dvh - 76px);
+min-height:0;
+display:flex;align-items:center;
+position:relative;overflow:hidden;
+background:
+radial-gradient(ellipse at 80% 35%,#6b50ff27,transparent 40%),
+radial-gradient(ellipse at 15% 85%,#2555b51c,transparent 38%);
+}
+.hero{
+width:100%;max-width:1150px;
+margin:auto;padding:20px 6%;
+display:grid;grid-template-columns:1.25fr .75fr;
+align-items:center;gap:35px;
+}
+.tag{
+display:inline-block;
+padding:8px 13px;border-radius:30px;
+border:1px solid #8e7aff55;
+background:#8b72ff12;
+color:#b9aaff;font-size:10px;
+letter-spacing:1.3px;font-weight:bold;
+}
+h1{
+font-size:clamp(38px,5.5vw,67px);
+line-height:1.1;letter-spacing:-2.5px;
+margin:23px 0 17px;
+}
+.gradient{
+background:linear-gradient(100deg,#7895ff,#c18aff);
+-webkit-background-clip:text;
+background-clip:text;color:transparent;
+}
+.description{
+color:#a5aabd;font-size:14px;
+line-height:1.8;max-width:530px;
+}
+.actions{display:flex;gap:13px;margin-top:27px;flex-wrap:wrap}
+.secondary-btn{
+border:1px solid #ffffff35;
+border-radius:7px;padding:11px 18px;
+font-size:12px;color:#e1e3ee;
+}
+.visual{
+position:relative;display:flex;
+justify-content:center;align-items:center;
+min-height:310px;
+}
+.glow{
+position:absolute;width:250px;height:250px;
+border-radius:50%;
+background:#7259ff30;filter:blur(70px);
+}
+.panel{
+position:relative;width:100%;max-width:330px;
+border:1px solid #ffffff20;
+border-radius:16px;padding:24px;
+background:linear-gradient(145deg,#1a2033ed,#101321ed);
+box-shadow:0 25px 80px #0008;
+}
+.panel-top{display:flex;justify-content:space-between;align-items:center}
+.panel-logo{font-weight:800;font-size:15px}
+.status{font-size:10px;color:#a99bff}
+.panel h2{font-size:22px;margin:28px 0 8px}
+.panel p{font-size:12px;color:#9ca4bb;line-height:1.7}
+.line{height:1px;background:#ffffff16;margin:20px 0}
+.feature{display:flex;align-items:center;gap:12px;margin:14px 0}
+.feature-icon{
+height:35px;width:35px;border-radius:9px;
+display:grid;place-items:center;
+background:#7965ff20;color:#b6a5ff;
+}
+.feature strong{font-size:12px;display:block}
+.feature small{font-size:10px;color:#9299ad}
+.bottom{
+position:absolute;bottom:19px;
+left:6%;right:6%;
+display:flex;justify-content:space-between;
+color:#777f94;font-size:10px;
+}
+.bottom span{color:#a89aff}
+@media(max-width:700px){
+header{
+height:62px;padding:0 4%;
+}
+.logo{font-size:18px}
+nav{gap:11px}
+nav a{font-size:10px}
+.contact-btn{display:none}
+main{height:calc(100dvh - 62px)}
+.hero{
+height:100%;padding:12px 5% 35px;
+display:flex;flex-direction:column;
+justify-content:center;align-items:stretch;
+gap:5px;
+}
+.tag{font-size:8px;padding:6px 10px}
+h1{font-size:clamp(30px,8vw,43px);margin:15px 0 10px;letter-spacing:-1.5px}
+.description{font-size:12px;line-height:1.6}
+.actions{margin-top:18px;gap:9px}
+.main-btn,.secondary-btn{padding:10px 12px;font-size:10px}
+.visual{min-height:0;flex:0 1 auto;margin-top:15px}
+.panel{max-width:100%;padding:13px 15px}
+.panel h2{font-size:16px;margin:10px 0 3px}
+.panel p{font-size:10px}
+.line{margin:9px 0}
+.feature{margin:7px 0;gap:8px}
+.feature-icon{height:26px;width:26px;font-size:12px}
+.feature strong{font-size:10px}
+.feature small{font-size:9px}
+.bottom{bottom:7px;font-size:8px;left:5%;right:5%}
+}
+@media(max-width:370px){
+nav{gap:8px}
+nav a{font-size:9px}
+.logo{font-size:16px}
+.visual{display:none}
+.hero{justify-content:center}
+}
+</style>
+</head>
+
+<body>
+<header>
+<a class="logo" href="index.html">TaskPilot<span> Digital.</span></a>
+
+<nav>
+<a class="active" href="index.html">Home</a>
+<a href="services.html">Services</a>
+<a href="about.html">About</a>
+<a href="portfolio.html">Work</a>
+<a href="contact.html">Contact</a>
+</nav>
+
+<a href="contact.html" class="contact-btn">Let's Talk ↗</a>
+</header>
+
+<main>
+<div class="hero">
+
+<div>
+<div class="tag">✦ DIGITAL SOLUTIONS FOR GROWING BUSINESSES</div>
+
+<h1>
+Building Better<br>
+Digital <span class="gradient">Experiences.</span>
+</h1>
+
+<p class="description">
+We help ambitious businesses in the USA and Canada grow through professional website development, intelligent AI automation and modern digital solutions.
+</p>
+
+<div class="actions">
+<a href="contact.html" class="main-btn">Start a Project ↗</a>
+<a href="services.html" class="secondary-btn">Explore Services</a>
+</div>
+</div>
+
+<div class="visual">
+<div class="glow"></div>
+<div class="panel">
+<div class="panel-top">
+<div class="panel-logo">TaskPilot Digital.</div>
+<div class="status">✦ DIGITAL PARTNER</div>
+</div>
+
+<h2>Technology meets <span class="gradient">ambition.</span></h2>
+<p>Thoughtful digital solutions designed around the way your business works.</p>
+
+<div class="line"></div>
+
+<div class="feature">
+<div class="feature-icon">✦</div>
+<div><strong>Website Development</strong><small>Modern digital experiences</small></div>
+</div>
+
+<div class="feature">
+<div class="feature-icon">⌘</div>
+<div><strong>AI Automation</strong><small>Smarter customer experiences</small></div>
+</div>
+
+<div class="feature">
+<div class="feature-icon">↗</div>
+<div><strong>Digital Growth</strong><small>Built around your goals</small></div>
+</div>
+</div>
+</div>
+
+</div>
+
+<div class="bottom">
+<div>© 2026 TaskPilot Digital</div>
+<div>INNOVATION <span>·</span> DESIGN <span>·</span> GROWTH</div>
+</div>
+</main>
+
+</body>
+</html>
