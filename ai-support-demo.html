@@ -5,140 +5,445 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>TaskPilot AI Support</title>
+
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Arial,sans-serif;background:#080c17;color:#fff;min-height:100vh}
-.app{max-width:900px;margin:auto;min-height:100vh;display:flex;flex-direction:column;background:#0d1424}
-header{padding:19px 22px;border-bottom:1px solid #26324a;display:flex;align-items:center;gap:13px}
-.logo{height:43px;width:43px;border-radius:13px;background:linear-gradient(135deg,#3979ff,#9a55ed);display:grid;place-items:center;font-size:23px}
-.brand{font-size:18px;font-weight:bold}
-.sub{font-size:12px;color:#91a0bb;margin-top:5px}
-.status{margin-left:auto;font-size:11px;color:#f4c36a}
-main{flex:1;display:flex;flex-direction:column;padding:25px 20px}
-.welcome{text-align:center;margin:auto auto 25px;padding:25px 10px}
-.welcome h1{font-size:30px;margin-bottom:12px}
-.welcome p{color:#9ba9c2;line-height:1.7;font-size:14px}
-.chat{width:100%;max-width:760px;margin:0 auto;flex:1;overflow-y:auto;max-height:55vh;padding:10px 4px}
-.message{padding:14px 16px;margin-bottom:15px;border-radius:14px;max-width:88%;font-size:14px;line-height:1.7;white-space:pre-wrap;overflow-wrap:anywhere}
-.bot{background:#1a2740;color:#e6edff;border-bottom-left-radius:3px}
-.user{background:#365fbd;margin-left:auto;border-bottom-right-radius:3px}
-.typing{color:#aab8d2;font-size:13px;padding:10px}
-.composer{max-width:760px;width:100%;margin:20px auto 0}
-.inputbox{display:flex;gap:10px;background:#141f34;border:1px solid #344563;padding:9px;border-radius:13px}
-input{flex:1;min-width:0;background:transparent;border:0;outline:none;color:white;padding:10px;font-size:14px}
-input::placeholder{color:#8392ad}
-button{border:0;cursor:pointer}
-.send{background:#527cf0;color:white;border-radius:9px;padding:0 19px;font-weight:bold}
-.send:disabled{opacity:.5}
-.disclaimer{text-align:center;color:#73819a;font-size:11px;margin-top:12px;line-height:1.6}
-.newchat{background:#1c2c49;color:#cbd9f7;border:1px solid #354b70;border-radius:8px;padding:9px 12px;font-size:12px;margin-left:auto}
-footer{text-align:center;padding:17px;color:#65748f;font-size:11px}
-@media(max-width:550px){
-main{padding:18px 13px}
-.welcome h1{font-size:25px}
-.chat{max-height:58vh}
-.message{max-width:94%}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #080b14;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.app {
+    height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    max-width: 1100px;
+    margin: auto;
+    background: #0b1020;
+}
+
+header {
+    height: 65px;
+    min-height: 65px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    border-bottom: 1px solid #202941;
+    background: #0d1425;
+}
+
+.logo {
+    font-size: 19px;
+    font-weight: bold;
+    color: #8c9cff;
+}
+
+.logo span {
+    color: white;
+}
+
+.status {
+    font-size: 11px;
+    color: #63e6a5;
+    margin-top: 5px;
+}
+
+.new-chat {
+    border: 1px solid #39486b;
+    background: #151f36;
+    color: white;
+    border-radius: 9px;
+    padding: 9px 12px;
+    cursor: pointer;
+}
+
+.main {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.welcome {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.welcome .icon {
+    font-size: 48px;
+    margin-bottom: 18px;
+}
+
+.welcome h1 {
+    font-size: clamp(23px, 5vw, 34px);
+    margin-bottom: 12px;
+}
+
+.welcome h1 span {
+    color: #8797ff;
+}
+
+.welcome p {
+    color: #9ba8c2;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.suggestions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 9px;
+    margin-top: 25px;
+}
+
+.suggestions button {
+    background: #151f36;
+    color: #cbd5ef;
+    border: 1px solid #2a395b;
+    padding: 10px 13px;
+    border-radius: 20px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+#chat {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+    display: none;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.message {
+    display: flex;
+    gap: 10px;
+    max-width: 90%;
+    align-items: flex-start;
+}
+
+.message.user {
+    align-self: flex-end;
+    flex-direction: row-reverse;
+}
+
+.avatar {
+    width: 30px;
+    height: 30px;
+    min-width: 30px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: #202d51;
+    font-size: 13px;
+}
+
+.bubble {
+    background: #151e32;
+    border: 1px solid #293650;
+    padding: 12px 14px;
+    border-radius: 13px;
+    font-size: 14px;
+    line-height: 1.65;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+.user .bubble {
+    background: #263665;
+    border-color: #394e8d;
+}
+
+.typing {
+    color: #91a2ca;
+    font-size: 13px;
+    padding: 10px;
+}
+
+.composer {
+    padding: 13px 17px 18px;
+    background: #0d1425;
+    border-top: 1px solid #202941;
+}
+
+.input-box {
+    display: flex;
+    align-items: center;
+    background: #151f36;
+    border: 1px solid #344362;
+    border-radius: 14px;
+    padding: 5px 7px 5px 13px;
+    gap: 8px;
+}
+
+.input-box input {
+    flex: 1;
+    min-width: 0;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: white;
+    padding: 12px 0;
+    font-size: 14px;
+}
+
+.input-box input::placeholder {
+    color: #8190ad;
+}
+
+.send {
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(135deg,#697bff,#9259e9);
+    color: white;
+    padding: 11px 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.send:disabled {
+    opacity: .5;
+    cursor: not-allowed;
+}
+
+.note {
+    text-align: center;
+    font-size: 10px;
+    color: #75819a;
+    margin-top: 10px;
+}
+
+@media(max-width:600px) {
+    header {
+        padding: 0 13px;
+    }
+
+    #chat {
+        padding: 14px 11px;
+    }
+
+    .message {
+        max-width: 95%;
+    }
+
+    .composer {
+        padding: 11px 10px 14px;
+    }
+
+    .welcome p {
+        max-width: 300px;
+    }
 }
 </style>
 </head>
+
 <body>
+
 <div class="app">
+
 <header>
-<div class="logo">✦</div>
-<div>
-<div class="brand">TaskPilot AI</div>
-<div class="sub">Intelligent Customer Support</div>
-</div>
-<button class="newchat" onclick="resetChat()">New Chat +</button>
+    <div>
+        <div class="logo">TaskPilot <span>AI</span></div>
+        <div class="status">● AI Support Online</div>
+    </div>
+
+    <button class="new-chat" onclick="newChat()">
+        + New Chat
+    </button>
 </header>
 
-<main>
-<div class="welcome" id="welcome">
-<h1>How can I help you today?</h1>
-<p>Ask a question about a business, product or service.<br>Our AI assistant is being prepared.</p>
-</div>
+<div class="main">
 
-<div class="chat" id="chat" aria-live="polite"></div>
+    <div class="welcome" id="welcome">
+        <div class="icon">✦</div>
+
+        <h1>How can I <span>help you?</span></h1>
+
+        <p>
+            Your intelligent AI assistant.<br>
+            Ask anything and get helpful answers.
+        </p>
+
+        <div class="suggestions">
+            <button onclick="suggest('How can I grow my business?')">
+                Business Growth
+            </button>
+
+            <button onclick="suggest('How can I improve my website?')">
+                Website Help
+            </button>
+
+            <button onclick="suggest('Give me some marketing ideas')">
+                Marketing Ideas
+            </button>
+        </div>
+    </div>
+
+    <div id="chat"></div>
+
+</div>
 
 <div class="composer">
-<div class="inputbox">
-<input id="question" type="text" placeholder="Message TaskPilot AI..." autocomplete="off">
-<button class="send" id="send" onclick="sendMessage()">Send ➤</button>
-</div>
-<div class="disclaimer">AI responses may not always be accurate. Please verify important information.</div>
-</div>
-</main>
+    <div class="input-box">
 
-<footer>Powered by TaskPilot Digital · AI Support Demo</footer>
+        <input
+            id="messageInput"
+            type="text"
+            placeholder="Message TaskPilot AI..."
+            autocomplete="off"
+        >
+
+        <button class="send" id="sendBtn" onclick="sendMessage()">
+            Send ↑
+        </button>
+
+    </div>
+
+    <div class="note">
+        TaskPilot AI • Powered by Gemini
+    </div>
+</div>
+
 </div>
 
 <script>
-// Gemini backend URL will be added after secure backend deployment.
-const API_URL = "";
 
-const chat=document.getElementById("chat");
-const input=document.getElementById("question");
-const sendButton=document.getElementById("send");
-const welcome=document.getElementById("welcome");
+// CLOUDFLARE WORKER CONNECTION
+const API_URL = "https://taskpilot-ai-api-ff87.pithadiyashyam880.workers.dev";
 
-function addMessage(text,type){
-const div=document.createElement("div");
-div.className="message "+type;
-div.textContent=text;
-chat.appendChild(div);
-chat.scrollTop=chat.scrollHeight;
-return div;
+const input = document.getElementById("messageInput");
+const chat = document.getElementById("chat");
+const welcome = document.getElementById("welcome");
+const sendBtn = document.getElementById("sendBtn");
+
+let busy = false;
+
+function showChat() {
+    welcome.style.display = "none";
+    chat.style.display = "flex";
 }
 
-async function sendMessage(){
-const message=input.value.trim();
-if(!message || sendButton.disabled)return;
+function addMessage(text, sender) {
+    showChat();
 
-welcome.style.display="none";
-addMessage(message,"user");
-input.value="";
-sendButton.disabled=true;
+    const message = document.createElement("div");
+    message.className = "message " + sender;
 
-const waiting=addMessage("Connecting to AI assistant...","bot");
+    const avatar = document.createElement("div");
+    avatar.className = "avatar";
+    avatar.textContent = sender === "user" ? "You" : "✦";
 
-try{
-if(!API_URL){
-throw new Error("The secure AI backend has not been connected yet. Please try again after setup.");
+    const bubble = document.createElement("div");
+    bubble.className = "bubble";
+    bubble.textContent = text;
+
+    message.appendChild(avatar);
+    message.appendChild(bubble);
+
+    chat.appendChild(message);
+
+    chat.scrollTop = chat.scrollHeight;
+
+    return message;
 }
 
-const response=await fetch(API_URL,{
-method:"POST",
-headers:{"Content-Type":"application/json"},
-body:JSON.stringify({message})
+async function sendMessage() {
+
+    const message = input.value.trim();
+
+    if (!message || busy) return;
+
+    addMessage(message, "user");
+
+    input.value = "";
+    busy = true;
+    sendBtn.disabled = true;
+
+    const loading = document.createElement("div");
+    loading.className = "typing";
+    loading.textContent = "✦ TaskPilot AI is thinking...";
+
+    chat.appendChild(loading);
+    chat.scrollTop = chat.scrollHeight;
+
+    try {
+
+        const response = await fetch(API_URL, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                message: message
+            })
+        });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+            throw new Error(data.error || "Server error: " + response.status);
+        }
+
+        if (!data.reply) {
+            throw new Error("AI response was empty.");
+        }
+
+        addMessage(data.reply, "ai");
+
+    } catch (error) {
+
+        addMessage(
+            "Sorry! I couldn't connect to the AI server. Please try again.\n\nError: " + error.message,
+            "ai"
+        );
+
+    } finally {
+
+        loading.remove();
+        busy = false;
+        sendBtn.disabled = false;
+        input.focus();
+
+    }
+}
+
+function suggest(text) {
+    input.value = text;
+    sendMessage();
+}
+
+function newChat() {
+    if (busy) return;
+
+    chat.innerHTML = "";
+    chat.style.display = "none";
+    welcome.style.display = "flex";
+    input.value = "";
+    input.focus();
+}
+
+input.addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+        sendMessage();
+    }
 });
 
-if(!response.ok)throw new Error("The AI service is temporarily unavailable.");
-
-const data=await response.json();
-if(!data.reply)throw new Error("No response received from the AI service.");
-
-waiting.textContent=data.reply;
-
-}catch(error){
-waiting.textContent=error.message;
-}
-finally{
-sendButton.disabled=false;
-input.focus();
-}
-}
-
-function resetChat(){
-chat.innerHTML="";
-welcome.style.display="block";
-input.value="";
-input.focus();
-}
-
-input.addEventListener("keydown",function(event){
-if(event.key==="Enter")sendMessage();
-});
 </script>
+
 </body>
 </html>
-
