@@ -1,1 +1,144 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TaskPilot AI Support</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,sans-serif;background:#080c17;color:#fff;min-height:100vh}
+.app{max-width:900px;margin:auto;min-height:100vh;display:flex;flex-direction:column;background:#0d1424}
+header{padding:19px 22px;border-bottom:1px solid #26324a;display:flex;align-items:center;gap:13px}
+.logo{height:43px;width:43px;border-radius:13px;background:linear-gradient(135deg,#3979ff,#9a55ed);display:grid;place-items:center;font-size:23px}
+.brand{font-size:18px;font-weight:bold}
+.sub{font-size:12px;color:#91a0bb;margin-top:5px}
+.status{margin-left:auto;font-size:11px;color:#f4c36a}
+main{flex:1;display:flex;flex-direction:column;padding:25px 20px}
+.welcome{text-align:center;margin:auto auto 25px;padding:25px 10px}
+.welcome h1{font-size:30px;margin-bottom:12px}
+.welcome p{color:#9ba9c2;line-height:1.7;font-size:14px}
+.chat{width:100%;max-width:760px;margin:0 auto;flex:1;overflow-y:auto;max-height:55vh;padding:10px 4px}
+.message{padding:14px 16px;margin-bottom:15px;border-radius:14px;max-width:88%;font-size:14px;line-height:1.7;white-space:pre-wrap;overflow-wrap:anywhere}
+.bot{background:#1a2740;color:#e6edff;border-bottom-left-radius:3px}
+.user{background:#365fbd;margin-left:auto;border-bottom-right-radius:3px}
+.typing{color:#aab8d2;font-size:13px;padding:10px}
+.composer{max-width:760px;width:100%;margin:20px auto 0}
+.inputbox{display:flex;gap:10px;background:#141f34;border:1px solid #344563;padding:9px;border-radius:13px}
+input{flex:1;min-width:0;background:transparent;border:0;outline:none;color:white;padding:10px;font-size:14px}
+input::placeholder{color:#8392ad}
+button{border:0;cursor:pointer}
+.send{background:#527cf0;color:white;border-radius:9px;padding:0 19px;font-weight:bold}
+.send:disabled{opacity:.5}
+.disclaimer{text-align:center;color:#73819a;font-size:11px;margin-top:12px;line-height:1.6}
+.newchat{background:#1c2c49;color:#cbd9f7;border:1px solid #354b70;border-radius:8px;padding:9px 12px;font-size:12px;margin-left:auto}
+footer{text-align:center;padding:17px;color:#65748f;font-size:11px}
+@media(max-width:550px){
+main{padding:18px 13px}
+.welcome h1{font-size:25px}
+.chat{max-height:58vh}
+.message{max-width:94%}
+}
+</style>
+</head>
+<body>
+<div class="app">
+<header>
+<div class="logo">✦</div>
+<div>
+<div class="brand">TaskPilot AI</div>
+<div class="sub">Intelligent Customer Support</div>
+</div>
+<button class="newchat" onclick="resetChat()">New Chat +</button>
+</header>
+
+<main>
+<div class="welcome" id="welcome">
+<h1>How can I help you today?</h1>
+<p>Ask a question about a business, product or service.<br>Our AI assistant is being prepared.</p>
+</div>
+
+<div class="chat" id="chat" aria-live="polite"></div>
+
+<div class="composer">
+<div class="inputbox">
+<input id="question" type="text" placeholder="Message TaskPilot AI..." autocomplete="off">
+<button class="send" id="send" onclick="sendMessage()">Send ➤</button>
+</div>
+<div class="disclaimer">AI responses may not always be accurate. Please verify important information.</div>
+</div>
+</main>
+
+<footer>Powered by TaskPilot Digital · AI Support Demo</footer>
+</div>
+
+<script>
+// Gemini backend URL will be added after secure backend deployment.
+const API_URL = "";
+
+const chat=document.getElementById("chat");
+const input=document.getElementById("question");
+const sendButton=document.getElementById("send");
+const welcome=document.getElementById("welcome");
+
+function addMessage(text,type){
+const div=document.createElement("div");
+div.className="message "+type;
+div.textContent=text;
+chat.appendChild(div);
+chat.scrollTop=chat.scrollHeight;
+return div;
+}
+
+async function sendMessage(){
+const message=input.value.trim();
+if(!message || sendButton.disabled)return;
+
+welcome.style.display="none";
+addMessage(message,"user");
+input.value="";
+sendButton.disabled=true;
+
+const waiting=addMessage("Connecting to AI assistant...","bot");
+
+try{
+if(!API_URL){
+throw new Error("The secure AI backend has not been connected yet. Please try again after setup.");
+}
+
+const response=await fetch(API_URL,{
+method:"POST",
+headers:{"Content-Type":"application/json"},
+body:JSON.stringify({message})
+});
+
+if(!response.ok)throw new Error("The AI service is temporarily unavailable.");
+
+const data=await response.json();
+if(!data.reply)throw new Error("No response received from the AI service.");
+
+waiting.textContent=data.reply;
+
+}catch(error){
+waiting.textContent=error.message;
+}
+finally{
+sendButton.disabled=false;
+input.focus();
+}
+}
+
+function resetChat(){
+chat.innerHTML="";
+welcome.style.display="block";
+input.value="";
+input.focus();
+}
+
+input.addEventListener("keydown",function(event){
+if(event.key==="Enter")sendMessage();
+});
+</script>
+</body>
+</html>
+
