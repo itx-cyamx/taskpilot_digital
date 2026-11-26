@@ -10,162 +10,189 @@
 *{margin:0;padding:0;box-sizing:border-box}
 
 body{
-  background:#080b14;
-  color:#fff;
-  font-family:Arial,sans-serif;
-  min-height:100vh;
-  overflow:hidden;
+ background:#080b14;
+ color:#fff;
+ font-family:Arial,sans-serif;
+ min-height:100vh;
 }
 
 header{
-  height:76px;
-  padding:0 6%;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  border-bottom:1px solid #20263a;
+ min-height:76px;
+ padding:18px 4%;
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ border-bottom:1px solid #20263a;
+ gap:15px;
 }
 
-.logo{font-size:21px;font-weight:800}
-.logo span{color:#7885ff}
+.logo{
+ font-size:25px;
+ font-weight:bold;
+ color:white;
+ text-decoration:none;
+}
 
-nav{display:flex;gap:22px}
+.logo span{color:#8d75ff}
+
+nav{
+ display:flex;
+ gap:20px;
+ flex-wrap:wrap;
+}
+
 nav a{
-  color:#aeb6ca;
-  text-decoration:none;
-  font-size:13px;
+ color:#aab3c7;
+ text-decoration:none;
+ font-size:14px;
 }
-nav a:hover,nav .active{color:#9298ff}
 
-main{
-  min-height:calc(100dvh - 76px);
-  padding:30px 7%;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
+nav a:hover,nav .active{color:#9b83ff}
+
+.hero{
+ max-width:1100px;
+ margin:0 auto;
+ padding:95px 25px 35px;
 }
 
 .tag{
-  color:#9298ff;
-  font-size:12px;
-  letter-spacing:2px;
-  text-transform:uppercase;
-  margin-bottom:10px;
+ color:#a48bff;
+ letter-spacing:4px;
+ font-size:13px;
+ margin-bottom:20px;
 }
 
 h1{
-  font-size:clamp(30px,5vw,45px);
-  margin-bottom:10px;
-}
-h1 span{
-  background:linear-gradient(90deg,#7785ff,#c18aff);
-  -webkit-background-clip:text;
-  color:transparent;
+ font-size:clamp(34px,6vw,54px);
+ line-height:1.15;
+ margin-bottom:20px;
 }
 
-.subtitle{
-  color:#aab2c7;
-  font-size:13px;
-  line-height:1.6;
-  margin-bottom:25px;
-  max-width:600px;
+.gradient{
+ background:linear-gradient(90deg,#668cff,#c17bff);
+ -webkit-background-clip:text;
+ color:transparent;
+}
+
+.description{
+ color:#aab3c7;
+ font-size:17px;
+ line-height:1.7;
+ max-width:700px;
 }
 
 .projects{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:16px;
+ max-width:1100px;
+ margin:0 auto;
+ padding:20px 25px 50px;
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:20px;
 }
 
-.project{
-  background:#111727;
-  border:1px solid #252d45;
-  border-radius:15px;
-  overflow:hidden;
-  transition:.25s;
+.card{
+ background:#111a2c;
+ border:1px solid #28334b;
+ border-radius:23px;
+ overflow:hidden;
+ transition:.25s;
 }
 
-.project:hover{
-  transform:translateY(-4px);
-  border-color:#7785ff;
+.card:hover{
+ transform:translateY(-6px);
+ border-color:#8b78ff;
 }
 
 .preview{
-  height:145px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:linear-gradient(135deg,#171d38,#25204a);
-  font-size:48px;
+ height:185px;
+ display:grid;
+ place-items:center;
+ font-size:65px;
+ background:linear-gradient(135deg,#171d3d,#29204b);
 }
 
 .preview.two{
-  background:linear-gradient(135deg,#142b38,#24204b);
+ background:linear-gradient(135deg,#122d3b,#302052);
 }
 
 .preview.three{
-  background:linear-gradient(135deg,#29203c,#172d43);
+ background:linear-gradient(135deg,#29203f,#172844);
 }
 
-.info{padding:17px}
+.info{padding:19px}
+
 .type{
-  color:#9298ff;
-  font-size:10px;
-  text-transform:uppercase;
-  letter-spacing:1px;
+ color:#a69aff;
+ font-size:12px;
+ letter-spacing:2px;
+ margin-bottom:12px;
 }
-.info h3{font-size:16px;margin:8px 0}
+
+h2{
+ font-size:21px;
+ margin-bottom:12px;
+}
+
 .info p{
-  color:#aab2c7;
-  font-size:12px;
-  line-height:1.6;
+ color:#aab3c7;
+ font-size:14px;
+ line-height:1.7;
+ min-height:72px;
 }
 
 .demo{
-  display:inline-block;
-  margin-top:13px;
-  padding:6px 10px;
-  border:1px solid #343d60;
-  border-radius:20px;
-  color:#aeb6ff;
-  font-size:10px;
+ display:inline-block;
+ margin-top:17px;
+ padding:10px 16px;
+ border:1px solid #485579;
+ border-radius:30px;
+ color:#c7caff;
+ text-decoration:none;
+ font-size:12px;
+ transition:.2s;
+}
+
+.demo:hover{
+ background:#725cf1;
+ color:white;
+ border-color:#725cf1;
 }
 
 .note{
-  text-align:center;
-  margin-top:20px;
-  color:#818ba5;
-  font-size:11px;
+ text-align:center;
+ color:#78849d;
+ font-size:13px;
+ padding:0 15px 45px;
 }
 
-@media(max-width:700px){
-  header{height:62px;padding:0 15px}
-  .logo{font-size:17px}
-  nav{gap:10px}
-  nav a{font-size:10px}
-  main{
-    min-height:calc(100dvh - 62px);
-    padding:18px 15px;
-  }
-  h1{font-size:29px}
-  .subtitle{font-size:11px;margin-bottom:15px}
-  .projects{gap:9px}
-  .preview{height:105px;font-size:34px}
-  .info{padding:10px 8px}
-  .info h3{font-size:12px;margin:6px 0}
-  .info p{font-size:10px;line-height:1.4}
-  .type{font-size:8px}
-  .demo{font-size:8px;margin-top:8px;padding:5px 7px}
-  .note{font-size:9px;margin-top:13px}
+footer{
+ text-align:center;
+ padding:25px;
+ border-top:1px solid #20263a;
+ color:#71809a;
+ font-size:12px;
 }
 
-@media(max-width:370px){
-  nav{gap:7px}
-  nav a{font-size:9px}
-  .preview{height:90px}
-  .info{padding:8px 6px}
-  .info h3{font-size:11px}
-  .info p{font-size:9px}
+@media(max-width:750px){
+ .projects{grid-template-columns:repeat(2,1fr)}
+}
+
+@media(max-width:520px){
+ header{
+  padding:17px 4%;
+  flex-direction:column;
+ }
+ nav{
+  justify-content:center;
+  gap:16px;
+ }
+ .hero{padding:65px 20px 25px}
+ .projects{
+  grid-template-columns:1fr;
+  padding:15px 20px 35px;
+ }
+ .preview{height:165px}
+ .info p{min-height:auto}
 }
 </style>
 </head>
@@ -173,66 +200,71 @@ h1 span{
 <body>
 
 <header>
-  <div class="logo">TaskPilot<span>.</span></div>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="services.html">Services</a>
-    <a href="about.html">About</a>
-    <a class="active" href="portfolio.html">Work</a>
-    <a href="contact.html">Contact</a>
-  </nav>
+<a class="logo" href="index.html">TaskPilot<span>.</span></a>
+
+<nav>
+<a href="index.html">Home</a>
+<a href="services.html">Services</a>
+<a href="about.html">About</a>
+<a class="active" href="portfolio.html">Work</a>
+<a href="contact.html">Contact</a>
+</nav>
 </header>
 
-<main>
+<section class="hero">
+<div class="tag">OUR PORTFOLIO</div>
 
-  <div class="tag">Our Portfolio</div>
+<h1>
+Ideas into <span class="gradient">Digital Reality.</span>
+</h1>
 
-  <h1>Ideas into <span>Digital Reality.</span></h1>
+<p class="description">
+Explore our concept projects and see how modern digital
+solutions can help businesses create a stronger online presence.
+</p>
+</section>
 
-  <p class="subtitle">
-    Explore our concept projects and see how modern digital solutions
-    can help businesses create a stronger online presence.
-  </p>
+<section class="projects">
 
-  <div class="projects">
+<div class="card">
+<div class="preview">🌐</div>
+<div class="info">
+<div class="type">WEB DEVELOPMENT</div>
+<h2>Business Website</h2>
+<p>A clean and modern website concept for a growing business.</p>
+<a class="demo" href="./business-demo.html">VIEW LIVE DEMO ↗</a>
+</div>
+</div>
 
-    <div class="project">
-      <div class="preview">🌐</div>
-      <div class="info">
-        <div class="type">Web Development</div>
-        <h3>Business Website</h3>
-        <p>A clean and modern website concept for a growing business.</p>
-        <span class="demo">DEMO PROJECT</span>
-      </div>
-    </div>
+<div class="card">
+<div class="preview two">🤖</div>
+<div class="info">
+<div class="type">AI AUTOMATION</div>
+<h2>AI Support Assistant</h2>
+<p>A concept for automated customer questions and support.</p>
+<a class="demo" href="./ai-support-demo.html">VIEW LIVE DEMO ↗</a>
+</div>
+</div>
 
-    <div class="project">
-      <div class="preview two">🤖</div>
-      <div class="info">
-        <div class="type">AI Automation</div>
-        <h3>AI Support Assistant</h3>
-        <p>A concept for automated customer questions and support.</p>
-        <span class="demo">DEMO PROJECT</span>
-      </div>
-    </div>
+<div class="card">
+<div class="preview three">✨</div>
+<div class="info">
+<div class="type">WEBSITE REDESIGN</div>
+<h2>Modern Website</h2>
+<p>A redesign concept focused on a better digital experience.</p>
+<a class="demo" href="./restaurant-demo.html">VIEW LIVE DEMO ↗</a>
+</div>
+</div>
 
-    <div class="project">
-      <div class="preview three">✨</div>
-      <div class="info">
-        <div class="type">Website Redesign</div>
-        <h3>Modern Website</h3>
-        <p>A redesign concept focused on a better digital experience.</p>
-        <span class="demo">DEMO PROJECT</span>
-      </div>
-    </div>
+</section>
 
-  </div>
+<div class="note">
+Concept demonstrations only · More real projects coming soon.
+</div>
 
-  <div class="note">
-    Concept demonstrations only · More real projects coming soon.
-  </div>
-
-</main>
+<footer>
+© 2026 TaskPilot Digital · Build Better. Grow Smarter.
+</footer>
 
 </body>
 </html>
